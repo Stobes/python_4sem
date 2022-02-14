@@ -1,0 +1,10 @@
+	test1.txt
+	test2.txt
+	02-1_exc.ipynb
+	02exc.py
+	Day_one_exc.ipynb
+	foldertest.txt
+	folder_test2.txt
+	test.csv
+test_folder
+	utils.py
