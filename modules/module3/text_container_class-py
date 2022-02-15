@@ -1,0 +1,76 @@
+#Create a Python module, which consists of a class TextContainer.
+#The class must have a constructor which allow objects to be 
+#initialized with a text, ala: tc = TextContainer(my_text).
+#The class must implement the following methods for computing statistics on texts.
+
+#    Counting the amount of words used in a text.
+#    Counting the amount of chars used in a text.
+#    Counting the amount of letters, where letters are all ASCII letter characters, see
+
+
+#    Remove all punctuation characters, see
+
+
+import string
+string.ascii_letters  # returns 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+string.punctuation  # returns '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+
+class TextContainer():
+    def __init__(self, tc):
+        self.tc = tc
+
+
+    def num_words(self):
+        file = open(self.tc)
+        text = file.read()
+        lst = text.split()
+        return len(lst)
+
+    def num_chars(self):
+        file = open(self.tc)
+        text = file.read()
+        count = 0
+        for char in text:
+            count += 1
+        return count
+
+    def num_ascii(self):
+        file = open(self.tc)
+        text = file.read()
+        count = 0
+        for char in text:
+            if char in string.ascii_letters:
+                count += 1
+        return count
+
+    def remove_non_ascii(self):
+        file = open(self.tc)
+        text = file.read()
+        text.encode("ascii", "ignore")
+        count = 0
+        for char in text:
+            if char in string.ascii_letters:
+                count += 1
+        return count
+
+    def remove_non_ascii2(self):
+        file = open(self.tc)
+        text = file.read()
+        text.translate({ord(i): None for i in string.punctuation})
+        count = 0
+        for char in text:
+            if char in string.ascii_letters:
+                count += 1
+        return count
+        
+
+
+if __name__=="__main__":
+    text = TextContainer('bones_in_london.txt')
+
+    print(text.num_words())
+    print(text.num_chars())
+    print(text.num_ascii())
+    print(text.remove_non_ascii())
+    print(text.remove_non_ascii2())
