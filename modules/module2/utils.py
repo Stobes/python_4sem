@@ -15,8 +15,8 @@ if __name__=="__main__":
                 if not os.path.isdir(folderpath + f):
                     file_obj.write('\t'+f+'\n')
                 else:
-                    file_obj.write(f+'\n')
                     get_all_file_names(os.path.join(folderpath,f), out)
+                    file_obj.write(f+'\n')
 
-    #get_all_file_names('4sem_python/modules/module2/', '4sem_python/modules/module2/folder_test2.txt')
+    get_all_file_names('4sem_python/modules/module2/', '4sem_python/modules/module2/folder_test2.txt')
 
