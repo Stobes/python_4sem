@@ -1,9 +1,19 @@
+import csv
 from random import random
 import course
 import data_sheet
 import Student
+import os
+
+
+def write_list_to_file(output_file, lst):
+    with open(output_file, 'w') as out_file_obj:
+        output_writer = csv.writer(out_file_obj, delimiter='\t')
+        for elements in lst:
+            output_writer.writerow(elements)
 
 if __name__=="__main__":
+    path = '/python_4sem/modules/module3/exc03/'
     grades = [-3,2,4,7,10,12]
     availale_courses = ["Python", "Robotter", "Auto kode", "Sys", "Security", "GameDev"]
     gender = ["Male", "Female"]
@@ -12,11 +22,11 @@ if __name__=="__main__":
     last_names = ["Stevenson", "Donovan", "Cook", "Matthams", "Cherry", "Goldsmith", "Landry", "Mccarthy", "Tillman", "Preece"]
 
     def student_generator(n):
-        lst = list([])
+        stu_list = list([])
         for i in range(n):
             _gender = random.choice(gender)
             if _gender == "male":
-                lst.append(
+                stu_list.append(
                     Student(
                         random.choice(male_names) + random.choice(last_names),
                         _gender,
@@ -26,7 +36,7 @@ if __name__=="__main__":
                     )
                 )
         else:
-            lst.append(
+            stu_list.append(
                     Student(
                         random.choice(female_names) + random.choice(last_names),
                         _gender,
@@ -35,3 +45,4 @@ if __name__=="__main__":
                         random.randint(1000,9999)
                     )
                 )
+        

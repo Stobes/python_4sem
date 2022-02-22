@@ -1,8 +1,6 @@
 import data_sheet
 import course
 
-from audioop import avg
-
 
 class Student():
     def __init__(self, name, gender, data_sheet, image_url):
