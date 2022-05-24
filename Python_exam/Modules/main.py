@@ -118,6 +118,7 @@ if __name__ == "__main__":
         ['Bagepulver øko.', 13.25, 194.85]]
     ]
 
+    #insert image file name into img_to_list method.
     wordList = img_to_list("blocklistupdate3.png")
 
     print(wordList)

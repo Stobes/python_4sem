@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 def price_pr_unit(productList):
 

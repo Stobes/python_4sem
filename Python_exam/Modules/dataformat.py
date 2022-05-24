@@ -1,6 +1,3 @@
-from tokenize import String
-
-
 def clean_data(scraping_list):
 
     new_list = []
